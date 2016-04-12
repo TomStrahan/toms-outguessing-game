@@ -3,7 +3,11 @@
 
 // Gets the players guess
 def playerGuess(): Char = {
-  return parsePlayerInput(readChar())
+  try{
+    return parsePlayerInput(readChar())
+  }catch{
+    case e: Exception => println("You must input a character"); playerGuess()
+  }
 }
 
 //Gets the computers guess
